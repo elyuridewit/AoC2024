@@ -28,8 +28,6 @@ fn main() {
 
     let mut leftd: VecDeque<u32> = VecDeque::from(left);
     let mut rightd: VecDeque<u32> = VecDeque::from(right);
-    println!("{:?}", leftd);
-    println!("{:?}", rightd);
 
     let mut total_dist: u32 = 0;
     while leftd.len() != 0 {
