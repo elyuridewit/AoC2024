@@ -16,7 +16,6 @@ fn main() {
     // Get all the do() and don't() operations
     let mut do_donts: BTreeMap<usize, &str> = do_dont_pat.find_iter(&filecontent).map(|c| (c.end(), filecontent[c.start()..c.end()].strip_suffix("()").unwrap())).collect();
     do_donts.insert(0, "do");
-    // println!("{:?}", do_donts);
 
     let mut ranges: Vec<Range<usize>> = Vec::new();
     let mut prev_idx: usize = 0;
@@ -29,11 +28,6 @@ fn main() {
         ranges.push(Range{start:*last_elem.0,end:filecontent.len()})
     }
     for (idx, op) in do_donts.into_iter().skip(1) {
-        // if op != prev_op {
-        //     ranges.push(Range{start:prev_idx, end:idx});
-        //     prev_op = op;
-        //     prev_idx = idx;
-        // }
         if prev_op == "do" && op == "don't" {
             ranges.push(Range{start:prev_idx, end:idx});
             prev_op = op;
@@ -43,13 +37,10 @@ fn main() {
             prev_idx = idx
         }
     }
-    // println!("{:?}", ranges);
 
     let mut total: usize = 0;
     for range in ranges {
-        println!("{:?}", range);
         for mat in mul_pat.find_iter(&filecontent[range]) {
-            println!("{:?}", mat);
             if !mat.is_empty() {
                 let (num1_str, num2_str) = mat.as_str().strip_prefix("mul(").unwrap().strip_suffix(")").unwrap().split_once(",").unwrap();
                 let num1: usize = num1_str.parse().unwrap();

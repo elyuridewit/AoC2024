@@ -12,7 +12,6 @@ fn main() {
     let mul_pat: Regex = Regex::new(r"(mul\()\d{1,3},\d{1,3}\)").unwrap();
     let mut total: usize = 0;
     for mat in mul_pat.find_iter(&filecontent) {
-        println!("{:?}", &filecontent[mat.start()..mat.end()]);
         let mul = &filecontent[mat.start()..mat.end()];
         let (num1_str, num2_str) = mul.strip_prefix("mul(").unwrap().strip_suffix(")").unwrap().split_once(",").unwrap();
         let num1: usize = num1_str.parse().unwrap();
