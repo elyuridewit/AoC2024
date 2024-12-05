@@ -60,3 +60,11 @@ Executed in    1.70 millis    fish           external
    usr time    1.59 millis  278.00 micros    1.32 millis
    sys time    0.15 millis  149.00 micros    0.00 millis
 ```
+
+## Day 5
+```
+________________________________________________________
+Executed in   12.89 millis    fish           external
+   usr time   12.34 millis  230.00 micros   12.11 millis
+   sys time    0.11 millis  111.00 micros    0.00 millis
+```
