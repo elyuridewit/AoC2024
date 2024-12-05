@@ -1,6 +1,5 @@
 use std::{env, fs};
 
-
 struct MasCheck {
     matrix: Vec<Vec<char>>
 }

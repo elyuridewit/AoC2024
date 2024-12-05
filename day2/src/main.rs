@@ -17,7 +17,7 @@ fn main() {
     let mut safe_reports: usize = 0;
     let mut damp_safe: usize = 0;
     for report in reports {
-        println!("========================================");
+        // println!("========================================");
         let safe: bool = report_checker(report.clone());
         if safe {
             safe_reports += 1;
@@ -41,7 +41,7 @@ fn main() {
 }
 
 fn report_checker(report: Vec<isize>) -> bool {
-    println!("Checking report: {:?}", report);
+    // println!("Checking report: {:?}", report);
     let mut increase: Option<bool> = None;
     for (pos, value) in report.clone().into_iter().skip(1).enumerate() {
         // Due to .skip(1), pos can reference the previous element in the report
@@ -71,6 +71,6 @@ fn report_checker(report: Vec<isize>) -> bool {
 
     }
     
-    println!("Safe!");
+    // println!("Safe!");
     return true
 }
