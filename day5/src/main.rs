@@ -1,4 +1,4 @@
-use std::{collections::HashMap, env, fs};
+    use std::{collections::HashMap, env, fs};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
